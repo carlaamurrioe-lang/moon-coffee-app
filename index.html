@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Moon Coffee — Café de especialidad boliviano, regalos corporativos y barra móvil para eventos.">
+<meta name="keywords" content="Moon Coffee Bolivia, café de especialidad boliviano, café de Caranavi, café en grano, café molido, café Java, café Geisha, café Blend, café de especialidad en La Paz, barra móvil de café para eventos, regalos corporativos con café">
+<title>Moon Coffee | Café bajo otra luz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#0A0908;
+  --brown:#3A281B;
+  --gold:#C89545;
+  --cream:#F3EBDD;
+  --taupe:#C9BDA9;
+  --line:rgba(200,149,69,.34);
+  --white:#fff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--black);color:var(--cream);
+  font-family:Montserrat,Arial,sans-serif;line-height:1.6;
+}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+button{font:inherit}
+.container{width:min(1180px,92%);margin:auto}
+.eyebrow{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:600}
+h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;line-height:.95}
+h2{font-size:clamp(2.4rem,5vw,4.4rem)}
+.section{padding:100px 0}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:45px}
+.section-head p{max-width:480px;color:var(--taupe);font-size:.92rem}
+
+/* Header */
+header{
+  position:fixed;top:0;left:0;width:100%;z-index:1000;
+  background:rgba(10,9,8,.9);backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(243,235,221,.09);
+}
+.nav{height:78px;display:flex;align-items:center;justify-content:space-between;gap:25px}
+.brand{display:flex;align-items:center;min-width:185px}
+.brand img{width:132px;height:64px;object-fit:contain;object-position:left center}
+.brand-name{display:none}
+.brand-name span{display:none}
+.navlinks{display:flex;align-items:center;gap:25px;font-size:.7rem;text-transform:uppercase;letter-spacing:.12em}
+.navlinks a{color:var(--taupe);transition:.2s}
+.navlinks a:hover{color:var(--gold)}
+.header-actions{display:flex;align-items:center;gap:10px}
+.icon-link{
+  width:38px;height:38px;border:1px solid rgba(243,235,221,.18);
+  border-radius:50%;display:grid;place-items:center;color:var(--cream);transition:.2s;
+}
+.icon-link:hover{border-color:var(--gold);color:var(--gold)}
+.icon-link svg{width:18px;height:18px;fill:currentColor}
+.menu-btn{display:none;background:none;border:0;color:var(--cream);font-size:1.6rem}
+
+/* Hero */
+.hero{min-height:100vh;position:relative;display:flex;align-items:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url("hero.jpeg") center right/cover no-repeat}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,9,8,1) 0%,rgba(10,9,8,.98) 30%,rgba(10,9,8,.72) 47%,rgba(10,9,8,.18) 72%,rgba(10,9,8,.18) 100%)}
+.hero-content{position:relative;z-index:2;padding-top:78px;width:46%;max-width:570px;margin-left:0}
+.hero h1{font-size:clamp(4.5rem,8vw,8rem);margin:16px 0 22px}
+.hero h1 span{color:var(--gold)}
+.hero p{max-width:510px;color:var(--cream);font-size:1rem;margin-bottom:32px}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 23px;border:1px solid var(--gold);text-transform:uppercase;letter-spacing:.1em;font-size:.68rem;font-weight:700;transition:.2s}
+.btn.primary{background:var(--gold);color:var(--black)}
+.btn.secondary{background:transparent;color:var(--cream)}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.hero-note{margin-top:55px;display:flex;gap:30px;color:var(--taupe);font-size:.7rem;text-transform:uppercase;letter-spacing:.12em}
+.hero-note strong{display:block;color:var(--cream);font-family:"Cormorant Garamond";font-size:1.3rem;text-transform:none;letter-spacing:0}
+
+/* Categories */
+.categories{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#0e0c0a}
+.cat-wrap{display:flex;overflow:auto;scrollbar-width:none}
+.cat-wrap::-webkit-scrollbar{display:none}
+.cat{min-width:33.333%;padding:25px;text-align:center;border-right:1px solid rgba(243,235,221,.08);font-size:.7rem;text-transform:uppercase;letter-spacing:.15em}
+.cat:first-child{color:var(--gold)}
+.cat:hover{background:rgba(200,149,69,.06)}
+
+/* Products */
+.products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.product{background:#11100e;border:1px solid rgba(243,235,221,.1);overflow:hidden;transition:.25s}
+.product:hover{transform:translateY(-5px);border-color:var(--line)}
+.product-img{aspect-ratio:4/5;overflow:hidden;background:#191613}
+.product-img img{width:100%;height:100%;object-fit:cover;transition:.5s}
+.product:hover .product-img img{transform:scale(1.035)}
+.product-info{padding:24px}
+.product-top{display:flex;justify-content:space-between;gap:10px;align-items:start}
+.product h3{font-size:2.1rem}
+.score{font-size:.65rem;color:var(--gold);border:1px solid var(--line);padding:5px 8px}
+.meta{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0;color:var(--taupe);font-size:.65rem;text-transform:uppercase;letter-spacing:.08em}
+.product p{font-size:.78rem;color:var(--taupe);min-height:55px}
+.product-bottom{display:flex;justify-content:space-between;align-items:center;margin-top:20px}
+.price{font-family:"Cormorant Garamond";font-size:1.45rem;color:var(--cream)}
+.link{color:var(--gold);font-size:.67rem;text-transform:uppercase;letter-spacing:.12em;font-weight:700}
+
+
+/* Selector de presentaciones y carrito */
+.product-option-label{display:block;margin-top:18px;margin-bottom:7px;color:var(--gold);font-size:.62rem;letter-spacing:.13em;text-transform:uppercase}
+.product-size{width:100%;padding:12px;background:#171411;color:var(--cream);border:1px solid var(--line);font:inherit;font-size:.78rem}
+.product-size:disabled{opacity:1;cursor:default}
+.product-bottom{gap:12px;align-items:center;flex-wrap:wrap}
+.quantity-label{display:flex;align-items:center;gap:8px;color:var(--taupe);font-size:.7rem}
+.product-qty{width:58px;padding:8px;background:#171411;border:1px solid var(--line);color:var(--cream)}
+.product-add{width:100%;margin-top:16px;cursor:pointer}
+.cart-trigger{position:relative;cursor:pointer;background:transparent}
+.cart-count{position:absolute;right:-5px;top:-5px;min-width:19px;height:19px;padding:0 4px;border-radius:50%;background:var(--gold);color:#0a0908;font-size:.65rem;display:grid;place-items:center;font-weight:700}
+.cart-overlay{position:fixed;inset:0;background:rgba(0,0,0,.68);z-index:1500;opacity:0;visibility:hidden;transition:.25s}
+.cart-overlay.open{opacity:1;visibility:visible}
+.cart-drawer{position:fixed;z-index:1501;right:0;top:0;height:100dvh;width:min(460px,100%);background:#100e0c;border-left:1px solid var(--line);padding:28px;transform:translateX(105%);transition:transform .28s;display:flex;flex-direction:column;gap:18px;overflow:auto}
+.cart-drawer.open{transform:translateX(0)}
+.cart-head{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:18px}
+.cart-head h2{font-size:2.2rem}
+.cart-close{border:1px solid var(--line);background:transparent;color:var(--cream);font-size:1.5rem;width:38px;height:38px;cursor:pointer}
+.cart-lines{display:flex;flex-direction:column;gap:14px;overflow:auto;flex:1}
+.cart-empty{color:var(--taupe);font-size:.85rem;padding:20px 0}
+.cart-line{border-bottom:1px solid rgba(200,149,69,.2);padding-bottom:14px;display:grid;grid-template-columns:1fr auto;gap:8px}
+.cart-line-name{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.35rem}
+.cart-line-meta{color:var(--taupe);font-size:.75rem}
+.cart-line-subtotal{color:var(--cream);font-weight:600;font-size:.85rem}
+.cart-line-actions{display:flex;align-items:center;gap:7px;margin-top:8px}
+.cart-line-actions button{background:transparent;color:var(--cream);border:1px solid var(--line);width:30px;height:30px;cursor:pointer}
+.cart-line-actions .remove-line{width:auto;padding:0 8px;color:var(--taupe);font-size:.7rem}
+.cart-summary{border-top:1px solid var(--line);padding-top:18px}
+.cart-total-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.cart-total-row strong{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.8rem}
+.cart-checkout{width:100%;cursor:pointer}
+.story{position:relative;overflow:hidden;background:#100b09}
+.story-bg{position:absolute;inset:0;background:url('moon-coffee-story-bg.png') center/cover no-repeat;opacity:.42}
+.story::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,9,8,.88),rgba(10,9,8,.62)),linear-gradient(0deg,rgba(10,9,8,.75),rgba(10,9,8,.25))}
+.story-inner{position:relative;z-index:1}
+.story-heading{margin-bottom:30px}
+.story-heading h2{font-size:clamp(2.5rem,5vw,4rem)}
+.story-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(10,9,8,.54)}
+.story-item{padding:30px;border-right:1px solid var(--line)}
+.story-item:last-child{border-right:0}
+.story-item h3{font-size:2rem;margin-bottom:16px;color:var(--cream)}
+.story-item p{color:var(--taupe);font-size:.82rem;line-height:1.8}
+@media(max-width:900px){.story-grid{grid-template-columns:1fr}.story-item{border-right:0;border-bottom:1px solid var(--line);padding:24px}.story-item:last-child{border-bottom:0}}
+
+/* Services */
+.services{background:#0e0c0a}
+.services-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:22px}
+.service{position:relative;min-height:430px;overflow:hidden;border:1px solid rgba(243,235,221,.1)}
+.service img{width:100%;height:100%;object-fit:cover}
+.service::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,9,8,.92),rgba(10,9,8,.05) 70%)}
+.service-content{position:absolute;z-index:2;left:28px;right:28px;bottom:28px}
+.service h3{font-size:2.6rem;margin:7px 0}
+.service p{font-size:.78rem;color:var(--cream);max-width:500px}
+
+/* Quote */
+.quote{background:var(--brown)}
+.quote-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px;align-items:start}
+.quote h2{margin-top:15px}
+.quote-copy p{color:var(--taupe);margin-top:20px;font-size:.85rem}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field{display:flex;flex-direction:column;gap:7px}
+.field.full{grid-column:1/-1}
+.field label{font-size:.63rem;text-transform:uppercase;letter-spacing:.12em;color:var(--taupe)}
+.field input,.field select,.field textarea{
+  width:100%;background:rgba(10,9,8,.35);border:1px solid rgba(243,235,221,.18);
+  color:var(--cream);padding:13px 14px;outline:none;
+}
+.field textarea{min-height:120px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--gold)}
+.form .btn{margin-top:5px}
+
+/* Why */
+.why{position:relative;overflow:hidden}
+.why-bg{position:absolute;inset:0;background:url("footer.jpeg") center/cover no-repeat;opacity:.12}
+.why .container{position:relative;z-index:1}
+.why-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;margin-top:50px;background:rgba(200,149,69,.25)}
+.why-item{background:rgba(10,9,8,.88);padding:28px;min-height:170px}
+.why-item span{color:var(--gold);font-size:.65rem;letter-spacing:.15em}
+.why-item h3{font-size:1.8rem;margin:15px 0 8px}
+.why-item p{font-size:.72rem;color:var(--taupe)}
+
+/* Footer */
+footer{background:#080706;border-top:1px solid var(--line);padding:55px 0 25px}
+.footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:40px}
+.footer-brand p{font-size:.75rem;color:var(--taupe);max-width:300px;margin-top:15px}
+.footer h4{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.footer a,.footer p{font-size:.72rem;color:var(--taupe);display:block;margin:8px 0}
+.socials{display:flex;gap:9px;margin-top:16px}
+.socials .icon-link{width:42px;height:42px}
+.copyright{border-top:1px solid rgba(243,235,221,.08);margin-top:40px;padding-top:18px;color:#766e64;font-size:.62rem;display:flex;justify-content:space-between;gap:20px}
+
+
+/* App intro / pantalla de bienvenida */
+body.intro-open{overflow:hidden}
+.app-intro{
+  position:fixed;inset:0;z-index:3000;display:flex;align-items:center;justify-content:center;
+  padding:28px;background:#0A0908 url("hero.jpeg") center/cover no-repeat;
+  text-align:center;isolation:isolate;
+}
+.app-intro::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg,rgba(10,9,8,.48),rgba(10,9,8,.88) 62%,#0A0908)}
+.app-intro-inner{width:min(440px,100%);display:flex;flex-direction:column;align-items:center}
+.app-intro-logo{width:150px;height:110px;object-fit:contain;margin-bottom:26px;filter:drop-shadow(0 8px 20px rgba(0,0,0,.35))}
+.app-intro .eyebrow{margin-bottom:14px}
+.app-intro h1{font-size:clamp(3.5rem,13vw,5.6rem);line-height:.88;margin:0 0 22px}
+.app-intro h1 span{color:var(--gold)}
+.app-intro p{color:var(--cream);font-size:.88rem;max-width:310px;margin:0 auto 30px}
+.app-intro .btn{min-width:220px;min-height:50px}
+.app-intro-note{margin-top:24px;color:var(--taupe);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase}
+.app-intro.is-leaving{animation:introFade .45s ease forwards;pointer-events:none}
+@keyframes introFade{to{opacity:0;visibility:hidden}}
+@media(prefers-reduced-motion:reduce){.app-intro.is-leaving{animation:none;display:none}}
+
+/* Mobile */
+.mobile-bottom{display:none}
+@media(max-width:900px){
+  .navlinks{display:none}.menu-btn{display:block}
+  .brand{min-width:0}.header-actions{margin-left:auto}
+  .products-grid{grid-template-columns:1fr 1fr}
+  .services-grid,.quote-grid{grid-template-columns:1fr}
+  .why-grid{grid-template-columns:1fr 1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  body{padding-bottom:72px}
+  .nav{height:68px}
+  .brand img{width:38px;height:38px}.brand-name{font-size:1.35rem}
+  .header-actions .icon-link{display:none}
+  .hero{min-height:760px}
+  .hero-bg{background-position:64% center}
+  .hero::after{background:linear-gradient(90deg,rgba(10,9,8,.94),rgba(10,9,8,.5)),linear-gradient(0deg,rgba(10,9,8,.72),transparent 65%)}
+  .hero-content{padding-top:68px;width:100%;max-width:560px;margin:0}
+  .hero h1{font-size:4.5rem}
+  .hero p{font-size:.82rem}
+  .hero-note{margin-top:38px;gap:18px}
+  .hero-note strong{font-size:1.1rem}
+  .section{padding:72px 0}
+  .section-head{display:block;margin-bottom:30px}
+  .section-head p{margin-top:15px}
+  .cat{min-width:70%}
+  .products-grid{grid-template-columns:1fr;gap:16px}
+  .product-img{aspect-ratio:1/1.12}
+  .services-grid{gap:16px}
+  .service{min-height:360px}
+  .quote-grid{gap:35px}
+  .form{grid-template-columns:1fr}
+  .field.full{grid-column:auto}
+  .why-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:25px}
+  .footer-brand{grid-column:1/-1}
+  .copyright{display:block}.copyright span{display:block;margin-top:8px}
+  .mobile-bottom{
+    position:fixed;display:grid;grid-template-columns:repeat(5,1fr);
+    left:0;right:0;bottom:0;height:68px;background:rgba(10,9,8,.97);
+    border-top:1px solid var(--line);z-index:1200;backdrop-filter:blur(14px)
+  }
+  .mobile-bottom a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:var(--taupe);font-size:.52rem;text-transform:uppercase;letter-spacing:.06em}
+  .mobile-bottom a:hover{color:var(--gold)}
+  .mobile-bottom svg{width:19px;height:19px;fill:currentColor}
+}
+</style>
+</head>
+<body class="intro-open">
+
+<div class="app-intro" id="appIntro" role="dialog" aria-modal="true" aria-labelledby="introTitle">
+  <div class="app-intro-inner">
+    <img class="app-intro-logo" src="logo_transparent.png" alt="Moon Coffee">
+    <div class="eyebrow">Café de especialidad · Bolivia</div>
+    <h1 id="introTitle">Café bajo<br><span>otra luz.</span></h1>
+    <p>Descubre cafés bolivianos seleccionados desde su origen y encuentra tu próximo favorito.</p>
+    <button class="btn primary" type="button" onclick="enterMoonApp()">Explorar Moon Coffee</button>
+    <div class="app-intro-note">Origen · Aroma · Experiencia</div>
+  </div>
+</div>
+
+
+<header>
+  <div class="container nav">
+    <a class="brand" href="#inicio" aria-label="Moon Coffee inicio">
+      <img src="logo_black_final.png" alt="Logo Moon Coffee">
+      <div class="brand-name">Moon Coffee<span>CAFÉ DE ESPECIALIDAD</span></div>
+    </a>
+    <nav class="navlinks">
+      <a href="#inicio">Inicio</a>
+      <a href="#nosotros">¿Por qué Moon Coffee?</a>
+      <a href="#cafes">Cafés</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#historia">Nosotros</a>
+      <a href="#cotizacion">Cotizar</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-link cart-trigger" type="button" onclick="openCart()" aria-label="Abrir carrito" title="Carrito">
+        <svg viewBox="0 0 24 24"><path d="M7 18a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm10 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM3 2h2l2.7 12.1A2.5 2.5 0 0 0 10.1 16H18a2 2 0 0 0 1.9-1.4L22 7H7L6.4 4H3V2Zm4.5 7h11.8l-1.3 4.5a.5.5 0 0 1-.5.4h-7.4a.5.5 0 0 1-.5-.4L7.5 9Z"/></svg><span id="cartCount" class="cart-count">0</span>
+      </button>
+      <a class="icon-link" href="https://www.instagram.com/mooncoffe.bolivia/" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9Zm9.75 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/></svg>
+      </a>
+      <a class="icon-link" href="https://www.tiktok.com/@mooncoffe.bolivia" target="_blank" rel="noopener" aria-label="TikTok">
+        <svg viewBox="0 0 24 24"><path d="M15.5 2h3.1c.3 2.1 1.5 3.7 3.4 4.5v3.2c-1.3-.1-2.5-.5-3.5-1.1v7.2A6.2 6.2 0 1 1 13 9.7v3.4a2.9 2.9 0 1 0 2.2 2.7V2h.3Z"/></svg>
+      </a>
+      <a class="icon-link" href="mailto:mooncoffe2025@gmail.com" aria-label="Correo electrónico">
+        <svg viewBox="0 0 24 24"><path d="M3 5h18a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Zm0 2v.3l9 5.6 9-5.6V7H3Zm18 10V9.7l-8.47 5.28a1 1 0 0 1-1.06 0L3 9.7V17h18Z"/></svg>
+      </a>
+      <a class="icon-link" href="https://wa.me/59178068625" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.66 15L2 22l5.18-1.3A10 10 0 1 0 12 2Zm0 2a8 8 0 0 1 6.94 12L18.1 17l-3.23-.81a8 8 0 1 1-2.87-12.19Zm-4.2 3.8c.2-.2.47-.3.75-.3h.5c.3 0 .57.2.68.48l.7 1.72c.1.26.05.55-.14.75l-.5.54c.53 1.05 1.38 1.9 2.43 2.43l.54-.5c.2-.19.49-.24.75-.14l1.72.7c.28.11.48.38.48.68v.5c0 .28-.1.55-.3.75-.4.4-1.02.57-1.57.42-3.55-.95-6.34-3.74-7.29-7.29-.15-.55.02-1.17.42-1.57Z"/></svg>
+      </a>
+      <button class="menu-btn" aria-label="Abrir menú" onclick="document.getElementById('mobileMenu').classList.toggle('open')">☰</button>
+    </div>
+  </div>
+  <div id="mobileMenu" style="display:none;background:#0e0c0a;border-top:1px solid rgba(243,235,221,.08);padding:18px 4%;">
+    <a href="#inicio" onclick="closeMenu()">Inicio</a>
+    <a href="#nosotros" onclick="closeMenu()">¿Por qué Moon Coffee?</a>
+    <a href="#cafes" onclick="closeMenu()">Cafés</a>
+    <a href="#servicios" onclick="closeMenu()">Servicios</a>
+    <a href="#historia" onclick="closeMenu()">Nosotros</a>
+    <a href="#cotizacion" onclick="closeMenu()">Cotizar</a>
+    <a href="#contacto" onclick="closeMenu()">Contacto</a>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <div class="hero-bg"></div>
+  <div class="container hero-content">
+    <div class="eyebrow">Café de especialidad · Bolivia</div>
+    <h1>Café bajo <span>otra luz.</span></h1>
+    <p>Descubre cafés bolivianos seleccionados desde su origen, disponibles en grano o molido. También llevamos la experiencia Moon Coffee a tus eventos.</p>
+    <div class="ctas">
+      <a class="btn primary" href="#cafes">Conoce nuestros cafés</a>
+      <a class="btn secondary" href="#cotizacion">Cotiza tu evento</a>
+    </div>
+    <div class="hero-note">
+      <div><strong>Caranavi</strong>Origen</div>
+      <div><strong>3</strong>Perfiles</div>
+      <div><strong>100%</strong>Boliviano</div>
+    </div>
+  </div>
+</section>
+
+<section class="categories">
+  <div class="container cat-wrap">
+    <a class="cat" href="#cafes">Cafés</a>
+    <a class="cat" href="#barra">Barra móvil</a>
+    <a class="cat" href="#regalos">Regalos corporativos</a>
+  </div>
+</section>
+
+<section class="section why" id="nosotros">
+  <div class="why-bg"></div>
+  <div class="container">
+    <div class="section-head">
+      <div><h2>¿Por qué Moon Coffee?</h2></div>
+      
+    </div>
+    <div class="why-grid">
+      <article class="why-item"><span>01 · ORIGEN</span><h3>Bolivia</h3><p>Café seleccionado desde zonas productoras bolivianas.</p></article>
+      <article class="why-item"><span>02 · CALIDAD</span><h3>Especialidad</h3><p>Perfiles definidos para disfrutar cada taza de otra manera.</p></article>
+      <article class="why-item"><span>03 · EXPERIENCIA</span><h3>Detalles</h3><p>Una propuesta donde presentación, café y servicio van juntos.</p></article>
+      <article class="why-item"><span>04 · VERSATILIDAD</span><h3>Momentos</h3><p>Para tu casa, tu empresa o un evento que quieras recordar.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="cafes">
+  <div class="container">
+    <div class="section-head">
+      <div><div class="eyebrow">Nuestra selección</div><h2>Elige tu café.</h2></div>
+      <p>Tres perfiles para distintos momentos. Selecciona tu favorito y consulta disponibilidad y presentación.</p>
+    </div>
+    <div class="products-grid">
+      <article class="product" data-product="java">
+        <div class="product-img"><img src="java.jpeg" alt="Café Java Moon Coffee"></div>
+        <div class="product-info">
+          <div class="product-top"><h3>Java</h3><span class="score">88 pts</span></div>
+          <div class="meta"><span>Caranavi</span><span>Lavado</span><span>Java</span></div>
+          <p>Higo, flores, especias, caramelo y chancaca. Aroma a canela, anís, nuez y café limpio.</p>
+          <label class="product-option-label" for="size-java">Presentación</label>
+          <select class="product-size" id="size-java" aria-label="Tamaño de Java" onchange="updateProductPrice('java')"><option value="500">½ kilo — Bs 120</option><option value="1000">1 kilo — Bs 210</option></select>
+          <div class="product-bottom"><label class="quantity-label" for="qty-java">Cantidad <input id="qty-java" class="product-qty" type="number" min="1" step="1" value="1"></label><strong class="price" id="price-java">Bs 120</strong></div>
+          <button class="btn primary product-add" type="button" onclick="addProductToCart('java')">Añadir al carrito</button>
+        </div>
+      </article>
+      <article class="product" data-product="geisha">
+        <div class="product-img"><img src="geisha.jpeg" alt="Café Geisha Moon Coffee"></div>
+        <div class="product-info">
+          <div class="product-top"><h3>Geisha</h3><span class="score">89,5 pts</span></div>
+          <div class="meta"><span>Caranavi</span></div>
+          <p>Higo, mermelada de frutilla, jazmín, avellana y cacao. Cuerpo cremoso, envolvente y aterciopelado.</p>
+          <label class="product-option-label" for="size-geisha">Presentación</label>
+          <select class="product-size" id="size-geisha" aria-label="Tamaño de Geisha" onchange="updateProductPrice('geisha')"><option value="500">½ kilo — Bs 110</option><option value="1000">1 kilo — Bs 200</option></select>
+          <div class="product-bottom"><label class="quantity-label" for="qty-geisha">Cantidad <input id="qty-geisha" class="product-qty" type="number" min="1" step="1" value="1"></label><strong class="price" id="price-geisha">Bs 110</strong></div>
+          <button class="btn primary product-add" type="button" onclick="addProductToCart('geisha')">Añadir al carrito</button>
+        </div>
+      </article>
+      <article class="product" data-product="blend">
+        <div class="product-img"><img src="blend.jpeg" alt="Café Blend Moon Coffee"></div>
+        <div class="product-info">
+          <div class="product-top"><h3>Blend</h3><span class="score">87 pts</span></div>
+          <div class="meta"><span>Tueste europeo</span><span>Honey</span></div>
+          <p>Perfil y especificaciones adicionales disponibles por consulta.</p>
+          <label class="product-option-label" for="size-blend">Presentación</label>
+          <select class="product-size" id="size-blend" aria-label="Tamaño de Blend" disabled><option value="1000">1 kilo — Bs 160</option></select>
+          <div class="product-bottom"><label class="quantity-label" for="qty-blend">Cantidad <input id="qty-blend" class="product-qty" type="number" min="1" step="1" value="1"></label><strong class="price" id="price-blend">Bs 160</strong></div>
+          <button class="btn primary product-add" type="button" onclick="addProductToCart('blend')">Añadir al carrito</button>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section services" id="servicios">
+  <div class="container">
+    <div class="section-head">
+      <div><div class="eyebrow">Experiencias Moon Coffee</div><h2>Más que café.</h2></div>
+      <p>Llevamos café de especialidad y detalles personalizados a momentos que merecen otra experiencia.</p>
+    </div>
+    <div class="services-grid">
+      <article class="service" id="barra">
+        <img src="barra-movil.jpeg" alt="Barra móvil de café Moon Coffee">
+        <div class="service-content">
+          <div class="eyebrow">Para eventos</div>
+          <h3>Barra móvil</h3>
+          <p>Una estación de café de especialidad para acompañar tus celebraciones, eventos y experiencias de marca.</p>
+        </div>
+      </article>
+      <article class="service" id="regalos">
+        <img src="regalos.jpeg" alt="Regalo corporativo personalizado con café Moon Coffee">
+        <div class="service-content">
+          <div class="eyebrow">Para empresas</div>
+          <h3>Regalos corporativos</h3>
+          <p>Detalles personalizados con café y productos pensados para representar tu marca.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+<section class="section story" id="historia">
+  <div class="story-bg" aria-hidden="true"></div>
+  <div class="container story-inner">
+    <div class="section-head story-heading"><div><h2>Historia, Misión y Visión</h2></div></div>
+    <div class="story-grid">
+      <article class="story-item"><h3>Historia</h3><p>Moon Coffee nació en 2025, ofreciendo café en bodas y eventos sociales. La creciente demanda impulsó a la marca a establecer una conexión directa con productores de Caranavi para llevar café de especialidad a los hogares paceños. El café de Caranavi, cultivado en los Yungas paceños, se distingue por el carácter de su entorno, sus suelos fértiles y la riqueza aromática de cada cosecha.</p></article>
+      <article class="story-item"><h3>Misión</h3><p>Acercar el café de especialidad boliviano a más personas, conectando el origen y la calidad de los granos con experiencias únicas en cada taza, evento y encuentro.</p></article>
+      <article class="story-item"><h3>Visión</h3><p>Consolidarnos como una marca boliviana reconocida por su café de especialidad, destacando la riqueza de nuestros orígenes y llevando la experiencia de Moon Coffee a nuevos hogares, empresas y eventos.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section quote" id="cotizacion">
+  <div class="container quote-grid">
+    <div class="quote-copy">
+      <div class="eyebrow">Hablemos de tu idea</div>
+      <h2>Hazlo especial.</h2>
+      <p>Cuéntanos qué necesitas y nos pondremos en contacto para preparar una propuesta para tu evento o regalo corporativo.</p>
+    </div>
+    <form class="form" onsubmit="sendQuote(event)">
+      <div class="field"><label>Nombre</label><input id="qname" required placeholder="Tu nombre"></div>
+      <div class="field"><label>WhatsApp</label><input id="qphone" required placeholder="+591 ..."></div>
+      <div class="field"><label>Servicio</label>
+        <select id="qservice"><option>Barra móvil de café</option><option>Regalos corporativos</option><option>Compra de café</option></select>
+      </div>
+      <div class="field"><label>Fecha aproximada</label><input id="qdate" type="date"></div>
+      <div class="field full"><label>Cuéntanos qué necesitas</label><textarea id="qmessage" placeholder="Cantidad de personas, unidades, tipo de evento, presentación del café, etc."></textarea></div>
+      <button class="btn primary" type="submit">Enviar por WhatsApp</button>
+    </form>
+  </div>
+</section>
+
+
+</main>
+
+<footer id="contacto" class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="#inicio">
+          <img src="logo_black_final.png" alt="Logo Moon Coffee">
+          <div class="brand-name">Moon Coffee<span>CAFÉ DE ESPECIALIDAD</span></div>
+        </a>
+        <p>Café de especialidad boliviano, regalos corporativos y barra móvil para eventos.</p>
+        <div class="socials">
+          <a class="icon-link" href="https://www.instagram.com/mooncoffe.bolivia/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9Zm9.75 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0-3-3 3 3 0 0 0 3-3Z"/></svg>
+          </a>
+          <a class="icon-link" href="https://www.tiktok.com/@mooncoffe.bolivia" target="_blank" rel="noopener" aria-label="TikTok">
+            <svg viewBox="0 0 24 24"><path d="M15.5 2h3.1c.3 2.1 1.5 3.7 3.4 4.5v3.2c-1.3-.1-2.5-.5-3.5-1.1v7.2A6.2 6.2 0 1 1 13 9.7v3.4a2.9 2.9 0 1 0 2.2 2.7V2h.3Z"/></svg>
+          </a>
+          <a class="icon-link" href="mailto:mooncoffe2025@gmail.com" aria-label="Correo">
+            <svg viewBox="0 0 24 24"><path d="M3 5h18a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Zm0 2v.3l9 5.6 9-5.6V7H3Zm18 10V9.7l-8.47 5.28a1 1 0 0 1-1.06 0L3 9.7V17h18Z"/></svg>
+          </a>
+          <a class="icon-link" href="https://wa.me/59178068625" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.66 15L2 22l5.18-1.3A10 10 0 1 0 12 2Zm0 2a8 8 0 0 1 6.94 12L18.1 17l-3.23-.81a8 8 0 1 1-2.87-12.19Zm-4.2 3.8c.2-.2.47-.3.75-.3h.5c.3 0 .57.2.68.48l.7 1.72c.1.26.05.55-.14.75l-.5.54c.53 1.05 1.38 1.9 2.43 2.43l.54-.5c.2-.19.49-.24.75-.14l1.72.7c.28.11.48.38.48.68v.5c0 .28-.1.55-.3.75-.4.4-1.02.57-1.57.42-3.55-.95-6.34-3.74-7.29-7.29-.15-.55.02-1.17.42-1.57Z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div><h4>Navegación</h4><a href="#inicio">Inicio</a><a href="#nosotros">¿Por qué Moon Coffee?</a><a href="#cafes">Cafés</a><a href="#servicios">Servicios</a><a href="#historia">Historia, Misión y Visión</a><a href="#cotizacion">Cotizar</a></div>
+      <div><h4>Servicios</h4><a href="#barra">Barra móvil</a><a href="#regalos">Regalos corporativos</a><a href="#cafes">Comprar café</a></div>
+      <div><h4>Contacto</h4><a href="mailto:mooncoffe2025@gmail.com">mooncoffe2025@gmail.com</a><a href="https://wa.me/59178068625" target="_blank" rel="noopener">WhatsApp · +591 78068625</a><a href="https://www.instagram.com/mooncoffe.bolivia/" target="_blank" rel="noopener">Instagram · @mooncoffe.bolivia</a><a href="https://www.tiktok.com/@mooncoffe.bolivia" target="_blank" rel="noopener">TikTok · @mooncoffe.bolivia</a></div>
+    </div>
+    <div class="copyright"><span>© 2026 Moon Coffee. Todos los derechos reservados.</span><span>Café de especialidad · Bolivia</span></div>
+  </div>
+</footer>
+
+<nav class="mobile-bottom" aria-label="Navegación principal de la app">
+  <a href="#inicio" aria-label="Inicio"><svg viewBox="0 0 24 24"><path d="M12 3 3 10v10a1 1 0 0 0 1 1h5v-6h6v6h5a1 1 0 0 0 1-1V10l-9-7Z"/></svg>Inicio</a>
+  <a href="#cafes" aria-label="Cafés"><svg viewBox="0 0 24 24"><path d="M5 4h14v2H5V4Zm1 4h12v12H6V8Zm3 2v2h6v-2H9Zm0 4v2h6v-2H9Z"/></svg>Cafés</a>
+  <a href="#servicios" aria-label="Servicios"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4V5Zm2 2v10h12V7H6Zm2 2h8v2H8V9Zm0 4h6v2H8v-2Z"/></svg>Servicios</a>
+  <a href="#carrito" onclick="event.preventDefault();openCart()" aria-label="Abrir carrito"><svg viewBox="0 0 24 24"><path d="M7 18a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm10 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM3 2h2l2.7 12.1A2.5 2.5 0 0 0 10.1 16H18a2 2 0 0 0 1.9-1.4L22 7H7L6.4 4H3V2Z"/></svg><span>Carrito <b id="mobileCartCount">0</b></span></a>
+  <a href="https://wa.me/59178068625" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.66 15L2 22l5.18-1.3A10 10 0 1 0 12 2Zm0 2a8 8 0 0 1 6.94 12L18.1 17l-3.23-.81a8 8 0 1 1-2.87-12.19Z"/></svg>WhatsApp</a>
+</nav>
+
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()" aria-hidden="true"></div>
+<aside class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-labelledby="cartTitle" aria-hidden="true">
+  <div class="cart-head"><h2 id="cartTitle">Tu carrito</h2><button class="cart-close" type="button" onclick="closeCart()" aria-label="Cerrar carrito">×</button></div>
+  <div class="cart-lines" id="cartItems"><p class="cart-empty">Todavía no agregaste ningún café.</p></div>
+  <div class="cart-summary"><div class="cart-total-row"><span>Total del pedido</span><strong id="cartTotal">Bs 0</strong></div><button class="btn primary cart-checkout" type="button" onclick="checkoutWhatsApp()">Pedir por WhatsApp</button></div>
+</aside>
+<script>
+const WHATSAPP_NUMBER = '59178068625';
+const CART_STORAGE_KEY = 'moonCoffeeCart_v1';
+const PRODUCT_DATA = {
+  java: {name:'Java', score:'88 pts', description:'Higo, flores, especias, caramelo y chancaca. Aroma a canela, anís, nuez y café limpio.', sizes:{500:{label:'½ kilo',price:120},1000:{label:'1 kilo',price:210}}},
+  geisha: {name:'Geisha', score:'89,5 pts', description:'Higo, mermelada de frutilla, jazmín, avellana y cacao. Cuerpo cremoso, envolvente y aterciopelado.', sizes:{500:{label:'½ kilo',price:110},1000:{label:'1 kilo',price:200}}},
+  blend: {name:'Blend', score:'87 pts', description:'Perfil y especificaciones adicionales disponibles por consulta.', sizes:{1000:{label:'1 kilo',price:160}}}
+};
+let cart = loadCart();
+
+function enterMoonApp(){
+  const intro=document.getElementById('appIntro');
+  if(!intro)return;
+  intro.classList.add('is-leaving');
+  document.body.classList.remove('intro-open');
+  window.setTimeout(()=>{intro.remove();},460);
+}
+
+function loadCart(){try{const saved=JSON.parse(localStorage.getItem(CART_STORAGE_KEY)||'[]');return Array.isArray(saved)?saved.filter(x=>PRODUCT_DATA[x.productId]&&PRODUCT_DATA[x.productId].sizes[String(x.size)]&&Number.isInteger(x.qty)&&x.qty>0):[]}catch(e){return []}}
+function saveCart(){try{localStorage.setItem(CART_STORAGE_KEY,JSON.stringify(cart))}catch(e){console.warn('No se pudo guardar el carrito en este navegador.',e)}}
+function closeMenu(){const m=document.getElementById('mobileMenu');if(m)m.style.display='none'}
+const menuButton=document.querySelector('.menu-btn');if(menuButton)menuButton.addEventListener('click',()=>{const m=document.getElementById('mobileMenu');m.style.display=m.style.display==='block'?'none':'block'});
+function money(n){return 'Bs '+Number(n).toLocaleString('es-BO',{maximumFractionDigits:2})}
+function updateProductPrice(id){const product=PRODUCT_DATA[id];const select=document.getElementById('size-'+id);const size=select.value;const price=product.sizes[size].price;const qty=Math.max(1,parseInt(document.getElementById('qty-'+id).value,10)||1);document.getElementById('price-'+id).textContent=money(price*qty)}
+Object.keys(PRODUCT_DATA).forEach(id=>{const qty=document.getElementById('qty-'+id);qty.addEventListener('input',()=>updateProductPrice(id));qty.addEventListener('change',()=>{qty.value=Math.max(1,parseInt(qty.value,10)||1);updateProductPrice(id)})});
+function addProductToCart(id){const product=PRODUCT_DATA[id];const size=String(document.getElementById('size-'+id).value);const qty=Math.max(1,parseInt(document.getElementById('qty-'+id).value,10)||1);const key=id+'-'+size;const existing=cart.find(item=>item.key===key);if(existing)existing.qty+=qty;else cart.push({key,productId:id,size,qty});saveCart();renderCart();openCart()}
+function changeCartQty(key,delta){const item=cart.find(x=>x.key===key);if(!item)return;item.qty+=delta;if(item.qty<=0)cart=cart.filter(x=>x.key!==key);saveCart();renderCart()}
+function removeCartItem(key){cart=cart.filter(x=>x.key!==key);saveCart();renderCart()}
+function clearCart(){cart=[];saveCart();renderCart()}
+function cartTotal(){return cart.reduce((sum,item)=>sum+PRODUCT_DATA[item.productId].sizes[String(item.size)].price*item.qty,0)}
+function renderCart(){const box=document.getElementById('cartItems');const count=cart.reduce((sum,item)=>sum+item.qty,0);document.getElementById('cartCount').textContent=count;
+const mobileCount=document.getElementById('mobileCartCount');if(mobileCount)mobileCount.textContent=count;document.getElementById('cartTotal').textContent=money(cartTotal());if(!cart.length){box.innerHTML='<p class="cart-empty">Todavía no agregaste ningún café.</p>';return}box.innerHTML='';cart.forEach(item=>{const product=PRODUCT_DATA[item.productId];const size=product.sizes[String(item.size)];const line=document.createElement('div');line.className='cart-line';line.innerHTML=`<div><div class="cart-line-name"></div><div class="cart-line-meta"></div><div class="cart-line-actions"><button type="button" aria-label="Reducir cantidad">−</button><span>${item.qty}</span><button type="button" aria-label="Aumentar cantidad">+</button><button type="button" class="remove-line">Eliminar</button></div></div><div class="cart-line-subtotal">${money(size.price*item.qty)}</div>`;line.querySelector('.cart-line-name').textContent=product.name;line.querySelector('.cart-line-meta').textContent=`${size.label} · ${money(size.price)} por unidad`;const buttons=line.querySelectorAll('button');buttons[0].addEventListener('click',()=>changeCartQty(item.key,-1));buttons[1].addEventListener('click',()=>changeCartQty(item.key,1));buttons[2].addEventListener('click',()=>removeCartItem(item.key));box.appendChild(line)})}
+function openCart(){document.getElementById('cartDrawer').classList.add('open');document.getElementById('cartOverlay').classList.add('open');document.getElementById('cartDrawer').setAttribute('aria-hidden','false');document.body.style.overflow='hidden'}
+function closeCart(){document.getElementById('cartDrawer').classList.remove('open');document.getElementById('cartOverlay').classList.remove('open');document.getElementById('cartDrawer').setAttribute('aria-hidden','true');document.body.style.overflow=''}
+function whatsappUrl(text){return 'https://wa.me/'+WHATSAPP_NUMBER+'?text='+encodeURIComponent(text)}
+function checkoutWhatsApp(){if(!cart.length){alert('Añade al menos un café al carrito antes de continuar.');return}const lines=cart.map(item=>{const p=PRODUCT_DATA[item.productId];const size=p.sizes[String(item.size)];return `• ${p.name} — ${size.label} × ${item.qty} = ${money(size.price*item.qty)} (unitario: ${money(size.price)})`});const text='Hola, Moon Coffee. Quisiera realizar el siguiente pedido:\n\n'+lines.join('\n')+'\n\nTOTAL: '+money(cartTotal())+'\n\nQuedo atento/a para coordinar el pedido. ¡Gracias!';window.open(whatsappUrl(text),'_blank','noopener');}
+function sendQuote(e){e.preventDefault();const form=e.currentTarget;if(!form.reportValidity())return;const name=document.getElementById('qname').value.trim();const phone=document.getElementById('qphone').value.trim();const service=document.getElementById('qservice').value;const dateInput=document.getElementById('qdate').value;const date=dateInput?new Date(dateInput+'T12:00:00').toLocaleDateString('es-BO',{day:'2-digit',month:'long',year:'numeric'}):'Por definir';const details=document.getElementById('qmessage').value.trim()||'Sin detalles adicionales';const text=['Hola, Moon Coffee. Quisiera solicitar una cotización.','',`Nombre: ${name}`,`Mi WhatsApp: ${phone}`,`Servicio solicitado: ${service}`,`Fecha aproximada: ${date}`,'',`Detalles del evento o solicitud: ${details}`,'','Quedo atento/a a su respuesta. Muchas gracias.'].join('\n');window.open(whatsappUrl(text),'_blank','noopener')}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeCart();closeMenu()}});
+renderCart();Object.keys(PRODUCT_DATA).forEach(updateProductPrice);
+</script>
+</body>
+</html>
